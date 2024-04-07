@@ -25,4 +25,6 @@ Preço e condição:
 Preço de venda
 
 
-- Foi feito correções no arquivo veiculo.js e cliente.js em seguida adicionado um aquivo chamado: veiculo.test.js com um codigo que testa o arquivo veiculo.js
+- Foi feito correções no arquivo veiculo.js e cliente.js
+- Adicionado um aquivo chamado: veiculo.test.js com um codigo que testa o arquivo veiculo.js
+- add suporte a node.js para executar arquivos com o comando: node nomeDoArquivo.js
