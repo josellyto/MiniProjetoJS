@@ -4,23 +4,7 @@ class Carrinho {
     this.subtotal = null;
     this.frete = null;
     this.total = null;
-    this.clientes = [];
-    this.confirmacaoCadastro = [];
   }
-
-  //metodos adicionar cliente
-
-  adicionaClientes(cliente) {
-    this.clientes.push(cliente);
-  }
-
-  //metodos de cofirmação de cadastro
-
-  confirmacaoCadastro(cliente) {
-    // Verifique se o cliente já está na lista de clientes
-    return this.clientes.includes(cliente);
-  }
-
 
   adiciona(item) {
     this.itens.push(item);
