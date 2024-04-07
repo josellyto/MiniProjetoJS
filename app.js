@@ -15,8 +15,9 @@ cadastroCliente.adicionaClientes(new cliente("João da Silva",
     "01/01/2010",
     "01/01/2030",
     "Brasileiro",
-    "Solteiro",
-    ""))
+    "Casado",
+    "Mariana Santos"
+))
 
 console.log(cadastroCliente);
 
