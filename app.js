@@ -1,18 +1,27 @@
-const Carrinho = require('./carrinho.js');
-const Item = require('./item.js');
+const cliente = require('./cliente');
+const cadastros = require('./cadastros');
 
-const carrinho = new Carrinho();
+const cadastroCliente = new cadastros();
 
-carrinho.adiciona(new Item('Teclado', 25, 3));
-carrinho.adiciona(new Item('Mouse', 15.5, 5));
-carrinho.adiciona(new Item('Clipe', 0.1, 1));
-carrinho.adiciona(new Item('Pasta', 0.25, 2));
-carrinho.adiciona(new Item('Computador', 1700, 1));
+cadastroCliente.adicionaClientes(new cliente("João da Silva",
+    "01/01/1990",
+    "Masculino",
+    31,
+    "Rua ABC, 123",
+    "(00) 1234-5678",
+    "123.456.789-00",
+    "joao@example.com",
+    "123456789",
+    "01/01/2010",
+    "01/01/2030",
+    "Brasileiro",
+    "Solteiro",
+    ""))
 
-carrinho.adicionaFrete(15);
+console.log(cadastroCliente);
 
-carrinho.calculaTotal();
+//Visualizando o cliente cadastrado
+cadastroCliente.visualizarClienteCadastrado();
 
-carrinho.finalizaCompra();
-
-console.log(carrinho);
+//Finalizado o cadastro
+cadastroCliente.finalizarCadastro();
