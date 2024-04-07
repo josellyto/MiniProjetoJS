@@ -10,21 +10,21 @@ A entrega será feita pela postagem do link do projeto do github com uma branch 
 ![entr](https://github.com/josellyto/MiniProjetoJS/assets/16659567/0f29c0e1-104c-4caf-93ea-0ece8e1a56bd)
 
 
-
 Informações básicas do veículo:
-Marca
-Modelo
-Cor
-Ano de fabricação
-Placa do veiculo
-Quilometragem atual
-Condição do veículo (nova, usada, recondicionada, etc.)
-Tipo de carroceria (sedan, hatchback, SUV, etc.)
+- Marca
+- Modelo
+- Cor
+- Ano de fabricação
+- Placa do veiculo
+- Quilometragem atual
+- Condição do veículo (nova, usada, recondicionada, etc.)
+- Tipo de carroceria (sedan, hatchback, SUV, etc.)
 
 Preço e condição:
-Preço de venda
+-Preço de venda
 
-
+CHANGELOG
 - Foi feito correções no arquivo veiculo.js e cliente.js
 - Adicionado um aquivo chamado: veiculo.test.js com um codigo que testa o arquivo veiculo.js
+- add modulos node.js
 - add suporte a node.js para executar arquivos com o comando: node nomeDoArquivo.js
