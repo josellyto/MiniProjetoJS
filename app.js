@@ -3,20 +3,21 @@ const cadastros = require('./cadastros');
 
 const cadastroCliente = new cadastros();
 
-cadastroCliente.adicionaClientes(new cliente("Joao da Silva",
-    "01/01/1990",
-    "Masculino",
-    31,
-    "Rua ABC, 123",
-    "77981037688",
-    "922.904.570-51",
-    "joao@example.com",
-    "123456789",
-    "01/01/2010",
-    "01/01/2030",
-    "brasileiro",
-    "Viúvo",
-    "Mariana Santos"
+cadastroCliente.adicionaClientes(new cliente(
+    "Cesar Berberino", // Nome
+    "20000124", // Data de nascimento
+    "Outro", // Genero
+    24, // Idade
+    "Rua Alvorada, 666", // Endereço
+    "77981037688", // telefone
+    "904.948.400-05", // CPF válido
+    "unifg@gmail.com", // Email
+    "1234567890", // CNH
+    "2010-01-01",
+    "2030-01-01",
+    "brasileiro", //Nacionalidade
+    "Casado", // Estado civil
+    "Maria" // Nome conjude
 ))
 
 console.log(cadastroCliente);

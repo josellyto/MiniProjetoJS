@@ -1,27 +1,21 @@
-//Classe construtora para cliente, cadastro de cliente e seus dados pessoais.
-//Aqui, no caso, seria a interface de formulário de cadastro de cliente, onde são coletados dados pessoais do cliente para esta realizando o cadastro do cliente. 
-
 class cliente {
     constructor(nome, dataNascimento, genero, idade, endereco, telefone, cpf, email, carteiraMotorista, emissaoCNH, validadeCNH, nacionalidade, estadoCivil, nomeConjude) {
-        //constructor(nome, dataNascimento, genero, idade, endereco, telefone, cpf, email, carteiraMotorista, nacionalidade, estadoCivil, nomeConjude) {
         this.nome = this.validarNome(nome);
-        this.dataNascimento = dataNascimento; //Validar number
+        this.dataNascimento = this.validarDataNascimento(dataNascimento);
         this.genero = this.validarGenero(genero);
         this.idade = this.validarIdade(idade);
         this.endereco = endereco;
-        this.telefone = this.validarTelefone(telefone); //validar number
-        this.cpf = this.validarCPF(cpf); //validar number
-        this.email = email; //validar @ .com
-        this.carteiraMotorista = carteiraMotorista; //validar number
-        //        this.emissaoCNH = emissaoCNH;
-        //        this.validadeCNH = validadeCNH;
+        this.telefone = this.validarTelefone(telefone);
+        this.cpf = this.validarCPF(cpf);
+        this.email = this.validarEmail(email);
+        this.carteiraMotorista = this.validarCarteiraMotorista(carteiraMotorista);
         this.nacionalidade = this.validarNacionalidade(nacionalidade);
         this.estadoCivil = this.validarEstadoCivil(estadoCivil);
         this.nomeConjude = this.validarNomeConjude(nomeConjude, estadoCivil);
     }
 
     validarNome(nome) {
-        // Expressão regular para verificar se o nome contém apenas letras e espaços
+        // Verificar Nome
         if (/^[a-zA-Z\s]+$/.test(nome)) {
             return nome;
         } else {
@@ -31,7 +25,7 @@ class cliente {
 
 
     validarCPF(cpf) {
-        // Expressão regular para validar o formato de um CPF (dígitos e pontos opcionais)
+        // Verificar CPF (dígitos e pontos opcionais)
         const cpfRegex = /^(\d{3}\.?\d{3}\.?\d{3}-?\d{2})$/;
         if (cpfRegex.test(cpf)) {
             // Remove pontos e traços do CPF para fazer a verificação de dígitos
@@ -71,10 +65,23 @@ class cliente {
         }
     }
 
-    //Validação de gênero 
+    validarEmail(email) {
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!regex.test(email)) {
+            throw new Error("O e-mail fornecido não é válido.");
+        }
+        return email;
+    }
+
+    validarCarteiraMotorista(carteiraMotorista) {
+        if (!carteiraMotorista) {
+            throw new Error("O número da Carteira de Motorista não pode estar vazio.");
+        }
+        return carteiraMotorista;
+    }
 
     validarGenero(genero) {
-        // Converter o gênero para minúsculas
+        // Verificar Genero
         genero = genero.toLowerCase();
         // Verificar se o gênero fornecido é válido
         if (["masculino", "feminino", "outro"].includes(genero)) {
@@ -101,7 +108,7 @@ class cliente {
             throw new Error("O campo de nacionalidade não pode estar vazio.");
         }
         // Lista de nacionalidades válidas
-        const nacionalidadesValidas = ["brasileiro", "americano", "francês", "italiano", "espanhol", "português", "argentino"]; // Adicione outras nacionalidades conforme necessário
+        const nacionalidadesValidas = ["brasileiro", "americano", "francês", "italiano", "espanhol", "português", "argentino"];
         // Converter a nacionalidade fornecida para minúsculas
         nacionalidade = nacionalidade.toLowerCase();
         // Verificar se a nacionalidade fornecida é válida
@@ -113,12 +120,12 @@ class cliente {
     }
 
     validarEstadoCivil(estadoCivil) {
-        // Verificar se o campo de estado civil não está vazio
+        // Verificar estado civil
         if (!estadoCivil) {
             throw new Error("O campo de estado civil não pode estar vazio.");
         }
         // Lista de estados civis válidos
-        const estadosCivisValidos = ["solteiro", "casado", "divorciado", "viúvo"]; // Adicione outros estados civis conforme necessário
+        const estadosCivisValidos = ["solteiro", "casado", "divorciado", "viúvo"];
         // Converter o estado civil fornecido para minúsculas
         estadoCivil = estadoCivil.toLowerCase();
         // Verificar se o estado civil fornecido é válido
@@ -142,11 +149,23 @@ class cliente {
     }
 
     validarIdade(idade) {
-        // Verificar se a idade contém apenas números
-        if (!/^\d+$/.test(idade)) {
-            throw new Error("A idade deve conter apenas números.");
+        const idadeNumber = /^\d{1,3}$/;
+        if (!idadeNumber.test(idade)) {
+            throw new Error("O campo de Idade fornecido não é válido. Deve conter até 3 dígitos.");
+        }
+        const idadeNumero = parseInt(idade);
+        if (idadeNumero < 18 || idadeNumero > 80) {
+            throw new Error("A idade fornecida está fora do intervalo permitido (18 a 80 anos).");
         }
         return idade;
+    }
+// Verificar data de nascimento
+    validarDataNascimento(dataNascimento) {
+        const dataNacNumber = /^\d{8}$/;
+        if (!dataNacNumber.test(dataNascimento)) {
+            throw new Error("O campo de Data de Nascimento fornecido não é válido. Deve conter exatamente 8 dígitos.");
+        }
+        return dataNascimento;
     }
 }
 
