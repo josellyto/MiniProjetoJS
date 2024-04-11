@@ -10,7 +10,7 @@ function expect(actual) {
     toBe(expected) {
       if (actual === expected) {
         console.log(`Resultado recebido: ${actual} OK!`);
-      } else {S
+      } else {
         console.error(`Resultado recebido: ${actual}, Falhou! Esperado: ${expected}`);
       }
     }
@@ -19,7 +19,7 @@ function expect(actual) {
 
 // Teste para verificar a criação de veículo.js
 test('Criação de Veiculo', () => {
-  const carro = new Veiculo("Toyota", "Corolla", "ROSA", 2020, "ABC1234", 20000, "Novo", "Sedan", 80000);
+  const carro = new Veiculo("Toyota", "Corolla", "Preto", 2020, "ABC1234", 20000, "Novo", "Sedan", 80000);
   expect(carro.marca).toBe("Toyota");
   expect(carro.modelo).toBe("Corolla");
   expect(carro.cor).toBe("Preto");
