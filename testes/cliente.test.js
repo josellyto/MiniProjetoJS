@@ -3,18 +3,18 @@ const Cliente = require('../cliente');
 const novoCliente = new Cliente(
     "Cesar Berberino",
     "2000-01-24",
-    "não sabe ainda",
-    31,
-    "Rua alvorada, 666",
+    "Não sabe ainda",
+    24,
+    "Rua Alvorada, 666",
     "(77) 9999-1020",
-    "123.456.789-00",
+    "904.948.400-05", // CPF válido
     "unifg@gmail.com",
     "1234567890",
     "2010-01-01",
     "2030-01-01",
     "americano",
-    "Solteiro",
-    ""
+    "casado",
+    "Mariana Santos"
 );
 
 console.log("Dados do Cliente:");
@@ -27,8 +27,8 @@ console.log("Telefone:", novoCliente.telefone);
 console.log("CPF:", novoCliente.cpf);
 console.log("Email:", novoCliente.email);
 console.log("Carteira de Motorista:", novoCliente.carteiraMotorista);
-console.log("Emissão da CNH:", novoCliente.emissaoCNH);
-console.log("Validade da CNH:", novoCliente.validadeCNH);
+//console.log("Emissão da CNH:", novoCliente.emissaoCNH);
+//console.log("Validade da CNH:", novoCliente.validadeCNH);
 console.log("Nacionalidade:", novoCliente.nacionalidade);
 console.log("Estado Civil:", novoCliente.estadoCivil);
 console.log("Nome do Cônjuge:", novoCliente.nomeConjude);

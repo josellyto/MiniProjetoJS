@@ -1,5 +1,3 @@
-// Esse codigo testa o codigo de veiculo.js
-
 const Veiculo = require('../veiculo');
 
 function test(description, callback) {

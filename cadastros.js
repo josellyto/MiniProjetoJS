@@ -114,12 +114,12 @@ class cadastros {
                 if (!cliente.carteiraMotorista) {
                     camposFaltando.push('Está faltando preenche o campo Carteira de Motorista!')
                 }
-                if (!cliente.emissaoCNH) {
-                    camposFaltando.push('Está faltando preenche o campo Emissão do CNH!')
-                }
-                if (!cliente.validadeCNH) {
-                    camposFaltando.push('Está faltando preenche o campo Válidade do CNH!')
-                }
+//                if (!cliente.emissaoCNH) {
+//                    camposFaltando.push('Está faltando preenche o campo Emissão do CNH!')
+//                }
+//                if (!cliente.validadeCNH) {
+//                    camposFaltando.push('Está faltando preenche o campo Válidade do CNH!')
+//                }
                 if (!cliente.nacionalidade) {
                     camposFaltando.push('Está faltando preenche o campo Nacíonalidade!')
                 }

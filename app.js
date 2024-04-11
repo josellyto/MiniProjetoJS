@@ -3,7 +3,7 @@ const cadastros = require('./cadastros');
 
 const cadastroCliente = new cadastros();
 
-cadastroCliente.adicionaClientes(new cliente("João da Silva",
+cadastroCliente.adicionaClientes(new cliente("Joao da Silva",
     "01/01/1990",
     "Masculino",
     31,
