@@ -7,7 +7,7 @@ class cliente {
         this.nome = this.validarNome(nome);
         this.dataNascimento = dataNascimento; //Validar number
         this.genero = this.validarGenero(genero);
-        this.idade = idade; //validar number
+        this.idade = this.validarIdade(idade);
         this.endereco = endereco;
         this.telefone = this.validarTelefone(telefone); //validar number
         this.cpf = this.validarCPF(cpf); //validar number
@@ -139,6 +139,14 @@ class cliente {
             throw new Error("O campo do nome do cônjuge deve estar vazio quando o estado civil é 'solteiro', 'divorciado' ou 'viúvo'.");
         }
         return nomeConjude;
+    }
+
+    validarIdade(idade) {
+        // Verificar se a idade contém apenas números
+        if (!/^\d+$/.test(idade)) {
+            throw new Error("A idade deve conter apenas números.");
+        }
+        return idade;
     }
 }
 

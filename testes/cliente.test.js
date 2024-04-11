@@ -1,7 +1,7 @@
 const Cliente = require('../cliente');
 
 const novoCliente = new Cliente(
-    "Cesar serberino",
+    "Cesar Berberino",
     "2000-01-24",
     "Outro",
     24,
