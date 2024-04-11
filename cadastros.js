@@ -34,9 +34,7 @@ class cadastros {
                 if (!cliente.dataNascimento) {
                     camposFaltando.push('Está faltando preencher o campo Data de Nascimento!')
                 }
-                if (!cliente.genero) {
-                    camposFaltando.push('Está faltando preenche o campo Gênero!')
-                }
+
                 if (!cliente.idade) {
                     camposFaltando.push('Está faltando preenche o campo Idade!')
                 }
@@ -45,66 +43,33 @@ class cadastros {
                 }
                 if (!cliente.telefone) {
                     camposFaltando.push('Está faltando preenche o campo Telefone!')
-                }
-
-                function validarCPF(cpf) {
-                    cpf = cpf.replace(/[^\d]/g, ''); // Remove caracteres não numéricos
-
-                    if (
-                        cpf.length !== 11 ||
-                        cpf === "00000000000" ||
-                        cpf === "11111111111" ||
-                        cpf === "22222222222" ||
-                        cpf === "33333333333" ||
-                        cpf === "44444444444" ||
-                        cpf === "55555555555" ||
-                        cpf === "66666666666" ||
-                        cpf === "77777777777" ||
-                        cpf === "88888888888" ||
-                        cpf === "99999999999"
-                    ) {
-                        return false;
-                    }
-
-                    let soma = 0;
-                    for (let i = 0; i < 9; i++) {
-                        soma += parseInt(cpf.charAt(i)) * (10 - i);
-                    }
-
-                    let resto = 11 - (soma % 11);
-                    if (resto === 10 || resto === 11) {
-                        resto = 0;
-                    }
-
-                    if (resto !== parseInt(cpf.charAt(9))) {
-                        return false;
-                    }
-
-                    soma = 0;
-                    for (let i = 0; i < 10; i++) {
-                        soma += parseInt(cpf.charAt(i)) * (11 - i);
-                    }
-
-                    resto = 11 - (soma % 11);
-                    if (resto === 10 || resto === 11) {
-                        resto = 0;
-                    }
-
-                    if (resto !== parseInt(cpf.charAt(10))) {
-                        return false;
-                    }
-
-                    return true;
-                }
-
-                // Verificar se o CPF do cliente está preenchido e válido
-                if (!cliente.cpf) {
-                    camposFaltando.push('Está faltando preencher o campo CPF!');
                 } else {
-                    if (!validarCPF(cliente.cpf)) {
-                        camposFaltando.push('CPF inválido, por favor verificar!');
+
+                    const telefone = cliente.telefone;
+                    //Criando variavel onde nao receber variaveis que não seija numeros
+                    const telefoneFormantado = telefone.replace(/\D/g, '');
+
+                    if (telefoneFormantado.length !== telefone.length) {
+                        camposFaltando.push('O campo Telefone contém caracteres inválidos!');
+                    } if (
+                        telefoneFormantado.length !== 11 ||
+                        telefoneFormantado === "00000000000" ||
+                        telefoneFormantado === "11111111111" ||
+                        telefoneFormantado === "22222222222" ||
+                        telefoneFormantado === "33333333333" ||
+                        telefoneFormantado === "44444444444" ||
+                        telefoneFormantado === "55555555555" ||
+                        telefoneFormantado === "66666666666" ||
+                        telefoneFormantado === "77777777777" ||
+                        telefoneFormantado === "88888888888" ||
+                        telefoneFormantado === "99999999999"
+                    ) {
+                        camposFaltando.push('O número de telefone deve conter exatamente 11 dígitos!');
+                    } else {
+                        console.log("Confirmado número de Telefone!")
                     }
                 }
+
 
                 //lembra de cria veficador de e-mail e cnh os que falta para fazer teste para nosso codigo!
 
@@ -114,34 +79,11 @@ class cadastros {
                 if (!cliente.carteiraMotorista) {
                     camposFaltando.push('Está faltando preenche o campo Carteira de Motorista!')
                 }
-//                if (!cliente.emissaoCNH) {
-//                    camposFaltando.push('Está faltando preenche o campo Emissão do CNH!')
-//                }
-//                if (!cliente.validadeCNH) {
-//                    camposFaltando.push('Está faltando preenche o campo Válidade do CNH!')
-//                }
+
                 if (!cliente.nacionalidade) {
                     camposFaltando.push('Está faltando preenche o campo Nacíonalidade!')
                 }
-                if (!cliente.estadoCivil) {
-                    camposFaltando.push('Está faltando preencher o campo Estado Civil');
-                } else if (
-                    cliente.estadoCivil.toLowerCase() !== 'solteiro' &&
-                    cliente.estadoCivil.toLowerCase() !== 'solteira' &&
-                    cliente.estadoCivil.toLowerCase() !== 'viúvo' &&
-                    cliente.estadoCivil.toLowerCase() !== 'viúva' &&
-                    cliente.estadoCivil.toLowerCase() !== 'casado' &&
-                    cliente.estadoCivil.toLowerCase() !== 'casada' &&
-                    cliente.estadoCivil.toLowerCase() !== 'divorciado' &&
-                    cliente.estadoCivil.toLowerCase() !== 'divorciada'
-                ) {
-                    camposFaltando.push('Estado Civil inválido');
-                } else if (
-                    (cliente.estadoCivil.toLowerCase() === 'casado' || cliente.estadoCivil.toLowerCase() === 'casada') &&
-                    !cliente.nomeConjude
-                ) {
-                    camposFaltando.push('Está faltando preencher o campo Nome do Cônjuge');
-                }
+
 
                 if (camposFaltando.length === 0) {
                     console.log('Cadastro confirmado!');

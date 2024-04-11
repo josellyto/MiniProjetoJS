@@ -8,14 +8,14 @@ cadastroCliente.adicionaClientes(new cliente("Joao da Silva",
     "Masculino",
     31,
     "Rua ABC, 123",
-    "(00) 1234-5678",
+    "77981037688",
     "922.904.570-51",
     "joao@example.com",
     "123456789",
     "01/01/2010",
     "01/01/2030",
-    "Brasileiro",
-    "Casado",
+    "brasileiro",
+    "Viúvo",
     "Mariana Santos"
 ))
 
@@ -26,3 +26,4 @@ cadastroCliente.visualizarClienteCadastrado();
 
 //Finalizado o cadastro
 cadastroCliente.finalizarCadastro();
+

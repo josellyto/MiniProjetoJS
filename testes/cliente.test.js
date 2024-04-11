@@ -1,20 +1,20 @@
 const Cliente = require('../cliente');
 
 const novoCliente = new Cliente(
-    "Cesar Berberino",
+    "Cesar serberino",
     "2000-01-24",
-    "Não sabe ainda",
+    "Outro",
     24,
     "Rua Alvorada, 666",
-    "(77) 9999-1020",
+    "77981037688",
     "904.948.400-05", // CPF válido
     "unifg@gmail.com",
     "1234567890",
     "2010-01-01",
     "2030-01-01",
-    "americano",
-    "casado",
-    "Mariana Santos"
+    "Brasileiro",
+    "Casado",
+    "Maria"
 );
 
 console.log("Dados do Cliente:");
