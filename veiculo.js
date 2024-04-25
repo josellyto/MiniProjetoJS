@@ -1,78 +1,50 @@
-class Veiculo {
-  constructor(marca, modelo, cor, ano, placa, quilometragem, condicao, tipoDaCarroceria, preco) {
-    this.marca = this.validarMarca(marca);
-    this.modelo = this.validarModelo(modelo);
-    this.cor = this.validarCor(cor);
-    this.ano = this.validarAno(ano);
-    this.placa = this.validarPlaca(placa);
-    this.quilometragem = this.validarQuilometragem(quilometragem);
-    this.condicao = this.validarCondicao(condicao);
-    this.tipoDaCarroceria = this.validarTipoDaCarroceria(tipoDaCarroceria);
-    this.preco = this.validarPreco(preco);
+// Veiculo class
+class Veiculos {
+  constructor(modelo, ano, preco, quantidade) {
+    this.modelo = modelo;
+    this.ano = ano;
+    this.preco = preco;
+    this.quantidade = quantidade;
   }
 
-  validarMarca(marca) {
-    if (!marca || typeof marca !== "string") {
-      throw new Error("A marca não pode estar vazia.");
-    }
-    return marca;
+  obterModelo() {
+    return this.modelo;
   }
 
-  validarModelo(modelo) {
-    if (!modelo || typeof modelo !== "string") {
-      throw new Error("O modelo não pode estar vazio.");
-    }
-    return modelo;
+  obterAno() {
+    return this.ano;
   }
 
-  validarCor(cor) {
-    if (!cor || typeof cor !== "string") {
-      throw new Error("A cor não pode estar vazia.");
-    }
-    return cor;
+  obterPreco() {
+    return this.preco;
   }
 
-  validarAno(ano) {
-    if (!ano || typeof ano !== "number" || ano.toString().length !== 4) {
-      throw new Error("O ano não pode estar vazio e deve ser um número de 4 dígitos.");
-    }
-    return ano;
+  obterQuantidade() {
+    return this.quantidade;
   }
 
-  validarPlaca(placa) {
-    if (!placa || typeof placa !== "string" || placa.length !== 7) {
-      throw new Error("A placa não pode estar vazia e deve possuir 7 caracteres.");
-    }
-    return placa;
+  atualizarModelo(novoModelo) {
+    this.modelo = novoModelo;
   }
 
-  validarQuilometragem(quilometragem) {
-    if (!quilometragem || typeof quilometragem !== "number") {
-      throw new Error("A quilometragem não pode estar vazia, deve ser um numero zero ou maior que zero.");
-    }
-    return quilometragem;
+  atualizarAno(novoAno) {
+    this.ano = novoAno;
   }
 
-  validarCondicao(condicao) {
-    if (!condicao || !["Novo", "Usado", "Seminovo"].includes(condicao)) {
-      throw new Error("A condição não pode estar vazia e deve ser 'Novo', 'Usado' ou 'Seminovo'.");
-    }
-    return condicao;
+  atualizarPreco(novoPreco) {
+    this.preco = novoPreco;
   }
 
-  validarTipoDaCarroceria(tipoDaCarroceria) {
-    if (!tipoDaCarroceria || typeof tipoDaCarroceria !== "string") {
-      throw new Error("O tipo da carroceria não pode estar vazio, sedan, hacth, pick-up ou SUV.");
-    }
-    return tipoDaCarroceria;
+  atualizarQuantidade(novaQuantidade) {
+    this.quantidade = novaQuantidade;
   }
 
-  validarPreco(preco) {
-    if (!preco || typeof preco !== "number" || isNaN(preco)) {
-      throw new Error("O campo do preço deve possuir algum valor, obrigatório, e deve ser um número.");
-    }
-    return preco;
+  imprimirInformacoes() {
+    console.log(`Modelo: ${this.obterModelo()}`);
+    console.log(`Ano: ${this.obterAno()}`);
+    console.log(`Preço: ${this.obterPreco()}`);
+    console.log(`Quantidade: ${this.obterQuantidade()}`);
   }
-
 }
-module.exports = Veiculo;
+
+module.exports = Veiculos; 
