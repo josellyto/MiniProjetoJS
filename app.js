@@ -21,7 +21,7 @@ compra1.adicionarVeiculo(veiculo2);
 compra1.adicionarVeiculo(veiculo2);
 
 // Set the formaPagamento property of compra1
-compra1.setFormaPagamento('dinheiro');
+compra1.setFormaPagamento('');
 
 // Calculate the total value of the purchase
 const totalCompra = compra1.calcularValorTotal();
@@ -47,4 +47,4 @@ console.log("Clientes cadastrados na compra1:");
 compra1.listarClientes();
 
 console.log(`Total da compra: ${totalCompra}`);
-console.log(`${mensagem}, Confirmado com sucesso!`);
+console.log(`${mensagem}`);

@@ -69,15 +69,15 @@ class ComprasDeVeiculos {
         // Verifica a forma de pagamento e retorna uma mensagem correspondente
         switch (formaPagamento.toLowerCase()) {
             case "dinheiro":
-                return "Forma de pagamento: Dinheiro";
+                return "Forma de pagamento: Dinheiro, Aprovado com sucesso!";
             case "cartão":
-                return "Forma de pagamento: Cartão de crédito/débito";
+                return "Forma de pagamento: Cartão de crédito/débito, Aprovado com sucesso!";
             case "transferência":
-                return "Forma de pagamento: Transferência bancária";
+                return "Forma de pagamento: Transferência bancária, Aprovado com sucesso!";
             case "pix":
-                return "Forma de pagamento: PIX";
+                return "Forma de pagamento: PIX, Aprovado com sucesso!";
             case "boleto":
-                return "Forma de pagamento: Boleto bancário";
+                return "Forma de pagamento: Boleto bancário, Aprovado com sucesso!";
             default:
                 return "Forma de pagamento não reconhecida";
         }
