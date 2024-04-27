@@ -1,30 +1,50 @@
-const cliente = require('./cliente');
-const cadastros = require('./cadastros');
+const Cliente = require('./cliente');
+const Veiculo = require('./veiculos');
+const ComprasDeVeiculos = require('./compraVeiculo');
 
-const cadastroCliente = new cadastros();
+// Create instances of Veiculo class
+let veiculo1 = new Veiculo('Vectra', 1997, 25000, 1);
+let veiculo2 = new Veiculo('Corsa', 1994, 10000, 1);
 
-cadastroCliente.adicionaClientes(new cliente(
-    "Cesar Berberino", // Nome
-    "20000124", // Data de nascimento
-    "Outro", // Genero
-    24, // Idade
-    "Rua Alvorada, 666", // Endereço
-    "77981037688", // telefone
-    "904.948.400-05", // CPF válido
-    "unifg@gmail.com", // Email
-    "1234567890", // CNH
-    "2010-01-01",
-    "2030-01-01",
-    "brasileiro", //Nacionalidade
-    "Casado", // Estado civil
-    "Maria" // Nome conjude
-))
+// Create an instance of Cliente class
+let cliente1 = new Cliente('Cesar', '06627715597', 'Rua, Albino Goncalves, N= 252');
 
-console.log(cadastroCliente);
+// Create an instance of ComprasDeVeiculos class
+let compra1 = new ComprasDeVeiculos();
 
-//Visualizando o cliente cadastrado
-cadastroCliente.visualizarClienteCadastrado();
+// Add cliente1 to the clientes array of compra1
+compra1.adicionarCliente(cliente1);
 
-//Finalizado o cadastro
-cadastroCliente.finalizarCadastro();
+// Add veiculo1 and veiculo2 to the veiculos array of compra1
+compra1.adicionarVeiculo(veiculo1);
+compra1.adicionarVeiculo(veiculo2);
+compra1.adicionarVeiculo(veiculo2);
 
+// Set the formaPagamento property of compra1
+compra1.setFormaPagamento('dinheiro');
+
+// Calculate the total value of the purchase
+const totalCompra = compra1.calcularValorTotal();
+
+// Get the formaPagamento property of compra1
+const mensagem = compra1.getFormaPagamento();
+
+// Log the compra1 object, totalCompra, and mensagem to the console
+//console.log(compra1);
+
+console.log("Veículos cadastrados na compra1:");
+const veiculosCadastrados = compra1.listarVeiculos();
+veiculosCadastrados.forEach((veiculo, index) => {
+    console.log(`Veículo ${index + 1}:`);
+    console.log(`Modelo: ${veiculo.modelo}`);
+    console.log(`Ano: ${veiculo.ano}`);
+    console.log(`Preço: ${veiculo.preco}`);
+    console.log(`Quantidade: ${veiculo.quantidade}`);
+    console.log("------");
+});
+
+console.log("Clientes cadastrados na compra1:");
+compra1.listarClientes();
+
+console.log(`Total da compra: ${totalCompra}`);
+console.log(`Forma de pagamento em : ${mensagem}, Confirmado com sucesso!`);
