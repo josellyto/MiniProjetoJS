@@ -21,7 +21,7 @@ compra1.adicionarVeiculo(veiculo2);
 compra1.adicionarVeiculo(veiculo2);
 
 // Set the formaPagamento property of compra1
-compra1.setFormaPagamento('');
+compra1.setFormaPagamento('Dinheiro');
 
 // Calculate the total value of the purchase
 const totalCompra = compra1.calcularValorTotal();
@@ -43,8 +43,13 @@ veiculosCadastrados.forEach((veiculo, index) => {
     console.log("------");
 });
 
+// Get the total number of vehicles in the veiculos array
+const totalVeiculos = compra1.getTotalVeiculos();
+
 console.log("Clientes cadastrados na compra1:");
+console.log(`Total de veículos na compra1: ${totalVeiculos}`);
 compra1.listarClientes();
 
 console.log(`Total da compra: ${totalCompra}`);
 console.log(`${mensagem}`);
+

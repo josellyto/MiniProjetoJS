@@ -24,6 +24,11 @@ class ComprasDeVeiculos {
         }
     }
 
+    // Add a new method to get the total number of vehicles in the veiculos array
+    getTotalVeiculos() {
+        return this.veiculos.length;
+    }
+
     removerVeiculo(veiculo) {
         const index = this.veiculos.indexOf(veiculo);
         if (index !== -1) {
