@@ -47,4 +47,4 @@ console.log("Clientes cadastrados na compra1:");
 compra1.listarClientes();
 
 console.log(`Total da compra: ${totalCompra}`);
-console.log(`Forma de pagamento em : ${mensagem}, Confirmado com sucesso!`);
+console.log(`${mensagem}, Confirmado com sucesso!`);
