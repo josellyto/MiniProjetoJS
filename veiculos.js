@@ -1,4 +1,3 @@
-// Veiculo class
 class Veiculos {
   constructor(modelo, ano, preco, quantidade) {
     this.modelo = modelo;
@@ -47,4 +46,4 @@ class Veiculos {
   }
 }
 
-module.exports = Veiculos; 
+module.exports = Veiculos;
