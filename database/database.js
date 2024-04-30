@@ -13,9 +13,9 @@ const client = new Client({ // Create a new instance of the 'Client' class with 
 });
 
 
-getVeiculos(); // 
+//getVeiculos(); // 
 //insVeiculo("CIVIC",2022,129000,"KOP9187");
-//deleteVeiculos("Gol");
+deleteVeiculos("ABC1234");
 
 /**
  * Query all vehicles from the database and print their information
@@ -62,14 +62,14 @@ async function insVeiculo(modelo, ano, preco, placa) {
 
 /**
  * Delete a vehicle from the database
- * @param {string} modelo - The model of the vehicle to be deleted
+ * @param {string} placa - The plate of the vehicle to be deleted
  */
-async function deleteVeiculos(modelo) {
+async function deleteVeiculos(placa) {
     try {
         console.log("Iniciando a conexão.");
         await client.connect();//Iniciar a conexao 
         console.log("Conexão bem-sucedida!");
-        await client.query("delete from veiculos where modelo = '" + modelo + "'; ");
+        await client.query("delete from veiculos where placa = '" + placa + "'; ");
         console.log("Valor removido na tabela");
         const resultado = await client.query(`SELECT id, modelo, ano, preco, placa FROM public.veiculos;`);
         console.table(resultado.rows);
