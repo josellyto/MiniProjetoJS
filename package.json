@@ -301,7 +301,7 @@
     "typed-array-byte-offset": "^1.0.2",
     "typed-array-length": "^1.0.5",
     "unbox-primitive": "^1.0.2",
-    "undici-types": "^5.26.5",
+    "undici-types": "^5.28.4",
     "update-browserslist-db": "^1.0.13",
     "uri-js": "^4.4.1",
     "v8-to-istanbul": "^9.2.0",

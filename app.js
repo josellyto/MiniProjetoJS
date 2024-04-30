@@ -3,7 +3,7 @@ const Veiculo = require('./veiculos');
 const ComprasDeVeiculos = require('./compraVeiculo');
 
 // Create instances of Veiculo class
-let veiculo1 = new Veiculo('Vectra', 1997, 25000, 1);
+let veiculo1 = new Veiculo('', '', '', '');
 let veiculo2 = new Veiculo('Corsa', 1994, 10000, 1);
 
 // Create an instance of Cliente class
