@@ -4,7 +4,7 @@ const ComprasDeVeiculos = require('./compraVeiculo');
 
 // Create instances of Veiculo class
 let veiculo1 = new Veiculo('', '', '', '');
-let veiculo2 = new Veiculo('Corsa', 1994, 10000, 1);
+let veiculo2 = new Veiculo('Corsa', 1994, 10000, 'ABC1234');
 
 // Create an instance of Cliente class
 let cliente1 = new Cliente('Cesar', '06627715597', 'Rua, Albino Goncalves, N= 252');
@@ -39,7 +39,7 @@ veiculosCadastrados.forEach((veiculo, index) => {
     console.log(`Modelo: ${veiculo.modelo}`);
     console.log(`Ano: ${veiculo.ano}`);
     console.log(`Preço: ${veiculo.preco}`);
-    console.log(`Quantidade: ${veiculo.quantidade}`);
+    console.log(`Placa: ${veiculo.placa}`);
     console.log("------");
 });
 
@@ -52,4 +52,3 @@ compra1.listarClientes();
 
 console.log(`Total da compra: ${totalCompra}`);
 console.log(`${mensagem}`);
-
