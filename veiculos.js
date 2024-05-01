@@ -41,7 +41,7 @@ class Veiculos {
   // Add a new method to validate the placa format
   validarPlaca() {
     // Check if the placa is a string and has exactly 7 characters
-    if (typeof this.placa !== 'string' || this.placa.length !== 7) {
+    if (typeof this.placa!== 'string' || this.placa.length!== 7) {
       return false;
     }
 
@@ -51,6 +51,17 @@ class Veiculos {
       return false;
     }
 
+    return true;
+  }
+
+  // Add a new method to update the price with validation
+  atualizarPrecoComValidacao(novoPreco) {
+    // Check if the new price is a number and has a minimum value of 5 digits and a maximum value of 9 digits
+    if (typeof novoPreco!== 'number' || novoPreco <= 10000 || novoPreco > 999999999) {
+      return false;
+    }
+
+    this.preco = novoPreco;
     return true;
   }
 

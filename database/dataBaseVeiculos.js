@@ -14,8 +14,8 @@ const client = new Client({ // Create a new instance of the 'Client' class with 
 
 
 //getVeiculos(); // 
-//insVeiculo("CIVIC",2022,129000,"KOP9187");
-deleteVeiculos("ABC1234");
+//insVeiculo("NIVUS",2018,99999900,"PLL6F50");
+deleteVeiculos("PLL6F50");
 
 /**
  * Query all vehicles from the database and print their information
@@ -54,6 +54,7 @@ async function insVeiculo(modelo, ano, preco, placa) {
         console.table(resultado.rows);
     } catch (ex) {
         console.log("Ocorreu erro insVeiculos. Erro: " + ex.message);
+        console.log("Valor incorreto por favor verifique novamente!")
     } finally {
         await client.end();
         console.log("Conexão encerrada");
