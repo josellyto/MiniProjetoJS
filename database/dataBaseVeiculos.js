@@ -1,4 +1,5 @@
 const { gold } = require('color-name'); // Import the 'gold' color from the 'color-name' package
+const modulo = require('es-abstract/5/modulo');
 const { Client } = require('pg'); // Import the 'Client' class from the 'pg' package (PostgreSQL client)
 
 const client = new Client({ // Create a new instance of the 'Client' class with the following configuration:
@@ -15,7 +16,7 @@ const client = new Client({ // Create a new instance of the 'Client' class with 
 
 //getVeiculos(); // 
 //insVeiculo("NIVUS",2018,99999900,"PLL6F50");
-deleteVeiculos("PLL6F50");
+//deleteVeiculos("PLL6F50");
 
 /**
  * Query all vehicles from the database and print their information
@@ -26,7 +27,8 @@ async function getVeiculos() {
         console.log("Iniciando a conexão.");
         await client.connect();
         console.log("Conexão bem-sucedida!");
-        const resultado = await client.query(`SELECT id, modelo, ano, preco, placa FROM public.veiculos;`);
+        const resultado = await client.query(`SELECT id_veiculo, modelo, ano, preco, placa, id_cliente, id_funcionario
+        FROM public.veiculos;`);
         console.table(resultado.rows);
     } catch (ex) {
         console.log("Ocorreu erro getVeiculos. Erro: " + ex.message);
@@ -50,7 +52,8 @@ async function insVeiculo(modelo, ano, preco, placa) {
         console.log("Conexão bem-sucedida!");
         await client.query(`INSERT INTO public.veiculos(modelo, ano, preco, placa) VALUES ('${modelo}','${ano}','${preco}','${placa}');`);
         console.log("Valor inserido na tabela");
-        const resultado = await client.query(`SELECT id, modelo, ano, preco, placa FROM public.veiculos;`);
+        const resultado = await client.query(`SELECT id_veiculo, modelo, ano, preco, placa, id_cliente, id_funcionario
+        FROM public.veiculos;`);
         console.table(resultado.rows);
     } catch (ex) {
         console.log("Ocorreu erro insVeiculos. Erro: " + ex.message);
@@ -72,7 +75,8 @@ async function deleteVeiculos(placa) {
         console.log("Conexão bem-sucedida!");
         await client.query("delete from veiculos where placa = '" + placa + "'; ");
         console.log("Valor removido na tabela");
-        const resultado = await client.query(`SELECT id, modelo, ano, preco, placa FROM public.veiculos;`);
+        const resultado = await client.query(`SELECT id_veiculo, modelo, ano, preco, placa, id_cliente, id_funcionario
+        FROM public.veiculos;`);
         console.table(resultado.rows);
     } catch (ex) {
         console.log("Ocorreu erro insVeiculos. Erro: " + ex.message);
@@ -81,3 +85,19 @@ async function deleteVeiculos(placa) {
         console.log("Conexão encerrada");
     }
 }
+
+//... (rest of the code remains the same)
+
+module.exports = {
+    client,
+    Client,
+    getVeiculos,
+    insVeiculo,
+    deleteVeiculos
+};
+
+//Client exports();
+//client exports();
+//selectVeiculos();
+//insVeiculo("Gol", 2010, 10000, "ABC1234");
+//deleteVeiculos("ABC1234");
