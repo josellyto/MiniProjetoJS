@@ -1,8 +1,10 @@
 const { gold } = require('color-name'); // Import the 'gold' color from the 'color-name' package
 const modulo = require('es-abstract/5/modulo');
 const { Client } = require('pg'); // Import the 'Client' class from the 'pg' package (PostgreSQL client)
+const Veiculo = require('../veiculos');
 
-const client = new Client({ // Create a new instance of the 'Client' class with the following configuration:
+const client = new Client({
+    // Create a new instance of the 'Client' class with the following configuration:
     user: 'postgres', // The PostgreSQL username
     password: 'E53F', // The PostgreSQL password
     host: 'localhost', // The host address of the PostgreSQL server
@@ -14,8 +16,8 @@ const client = new Client({ // Create a new instance of the 'Client' class with 
 });
 
 
-//getVeiculos(); // 
-//insVeiculo("NIVUS",2018,99999900,"PLL6F50");
+getVeiculos(); // 
+//insVeiculo("Corrola",2016,7800000,"AST6F50");
 //deleteVeiculos("PLL6F50");
 
 /**
@@ -89,8 +91,6 @@ async function deleteVeiculos(placa) {
 //... (rest of the code remains the same)
 
 module.exports = {
-    client,
-    Client,
     getVeiculos,
     insVeiculo,
     deleteVeiculos

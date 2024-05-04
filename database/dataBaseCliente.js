@@ -25,7 +25,7 @@ const client = new Client({
 
 
 //getCliente();
-//insCliente('César Dos Santos','25251515151','77981037688','Guanambi-BA, Albino Gonçalves Dantas N= 252');
+//insCliente('rafael','99999999999','78415214711','Guanambi-BA, Av.Tira Dentes, Impirangua, N= 252');
 //deleteCliente('06627715597');
 //updateCliente('2', 'Cesar ', '06627715597', '77981037688', 'Guanambi-BA, Albino Gonçalves Dantas, Lagoinha, N= 252');
 
@@ -74,7 +74,7 @@ async function insCliente(nome, cpf, telefone, endereco) {
         console.table(resultado.rows);
     } catch (ex) {
         console.log("Ocorreu erro insVeiculos. Erro: " + ex.message);
-        console.log("Valor incorreto por favor verifique novamente!")
+        console.log("Valor incorreto por favor verifique novamente!");
     } finally {
         // Close the database connection
         await client.end();
@@ -124,7 +124,7 @@ async function updateCliente(cpf, nome, telefone, endereco) {
         await client.connect();//Iniciar a conexao 
         console.log("Conexão bem-sucedida!");
         // Execute a SQL query to update a client in the 'cliente' table based on the provided CPF
-        await client.query("update cliente set nome = '" + nome + "', telefone = '" + telefone + "', endereco = '" + endereco + "' where cpf = '" + cpf + "'; ");
+        await client.query("UPDATE cliente SET nome = '" + nome + "', telefone = '" + telefone + "', endereco = '" + endereco + "' WHERE cpf = '" + cpf + "'; ");
         console.log("Valor atualizado na tabela");
         // Execute a SQL query to retrieve all clients from the 'cliente' table
         const resultado = await client.query(`SELECT id_cliente, nome, cpf, telefone, endereco FROM public.cliente;`);
