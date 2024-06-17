@@ -1,0 +1,111 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Vendas Veiculo",
+    "collectionId": "244e1e44-1429-4a07-b162-336cb8686786",
+    "dateExported": "2024-06-17T03:34:18.510Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Veiculos",
+            "containerId": "",
+            "created": "2024-06-17T03:24:47.825Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "995499e5-d9f3-4697-afd6-2692f7083f46",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Testar API Veiculo",
+            "url": "http://localhost:3000/vehicle",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-06-17T03:25:42.122Z",
+            "modified": "2024-06-17T03:26:07.595Z",
+            "headers": []
+        },
+        {
+            "_id": "7249d783-ad46-4b52-9f2b-22d2d14b7110",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Cadastrar Veiculos",
+            "url": "http://localhost:3000/InserirVeiculo",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-17T03:26:29.702Z",
+            "modified": "2024-06-17T03:28:13.199Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"marca\": \"Toyota\",\r\n    \"modelo\": \"Corolla\",\r\n    \"ano\": 2020,\r\n    \"cor\": \"Prata\",\r\n    \"placa\": \"JKL7778\",\r\n    \"valor\": 75000\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "60f20a4f-2dd3-41d2-a2ed-bc11034ff8c5",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Listar Todos Veiculos",
+            "url": "http://localhost:3000/BuscarVeiculos",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-06-17T03:28:31.752Z",
+            "modified": "2024-06-17T03:28:59.771Z",
+            "headers": []
+        },
+        {
+            "_id": "d358a238-d749-4ee0-be61-eb3694171869",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Listar Veiculo Placa",
+            "url": "http://localhost:3000/BuscarVeiculo",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-17T03:29:21.473Z",
+            "modified": "2024-06-17T03:30:01.093Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n   \"placa\": \"JKL1989\"\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7eb032aa-ca26-4922-a450-10ba5cc58a94",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Alterar Cadastro Veiculo",
+            "url": "http://localhost:3000/AtualizarVeiculo",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2024-06-17T03:31:36.112Z",
+            "modified": "2024-06-17T03:32:02.887Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"placa\": \"JKL1988\",\r\n    \"marca\": \"Honda\",\r\n    \"modelo\": \"Civic\",\r\n    \"ano\": 2021,\r\n    \"cor\": \"Preto\",\r\n    \"status\": \"disponível\",\r\n    \"valor\": 85000\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6943b7c0-75ef-462b-a0e7-952fcff32e2b",
+            "colId": "244e1e44-1429-4a07-b162-336cb8686786",
+            "containerId": "2f82c294-718d-4828-abe7-55a39ff557f3",
+            "name": "Deletar Veiculo",
+            "url": "http://localhost:3000/DeletarVeiculo",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-06-17T03:32:18.290Z",
+            "modified": "2024-06-17T03:33:04.573Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n   \"placa\": \"JKL7778\"\r\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Gvhlcvt2mVy3BVFKJuqeOy5yMSf1Xs1cn-khhxyqv9fTYDnV4i-vya60Bcor6s_xFIbtbLWlxqb2Z1DxS-YO-g"
+}
