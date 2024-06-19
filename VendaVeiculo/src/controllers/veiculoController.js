@@ -162,9 +162,9 @@ export async function updateVeiculo(req, res) {
         // Atualiza apenas os campos marca, modelo, ano, cor, status, valor
         await db.run(`
             UPDATE Veiculo
-            SET marca = ?, modelo = ?, ano = ?, cor = ?, status = ?, valor = ?
+            SET marca = ?, modelo = ?, ano = ?, cor = ?,  valor = ?
             WHERE placa = ?
-        `, [veiculo.marca, veiculo.modelo, veiculo.ano, veiculo.cor, veiculo.status, veiculo.valor, veiculo.placa]);
+        `, [veiculo.marca, veiculo.modelo, veiculo.ano, veiculo.cor, veiculo.valor, veiculo.placa]);
 
         return res.status(200).json({
             statusCode: 200,

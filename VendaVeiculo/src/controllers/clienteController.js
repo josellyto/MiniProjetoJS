@@ -229,3 +229,4 @@ export async function deleteCliente(req, res) {
         });
     }
 }
+

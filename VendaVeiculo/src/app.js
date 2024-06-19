@@ -22,6 +22,7 @@ app.use(cors());
 import routercliente from './routes/clienteRoutes.js';
 import routerVeiculo from './routes/veiculosRoutes.js';
 import routerVenda from './routes/vendaRouter.js';
+import veiculosRoutes from './routes/veiculosRoutes.js';
 
 
 // Using the routes
