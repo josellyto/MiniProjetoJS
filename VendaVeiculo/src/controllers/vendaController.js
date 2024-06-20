@@ -293,53 +293,46 @@ export async function buscarVendaID(req, res) {
 
 // Delete Venda do data base
 
+// Função para deletar uma venda
 export async function deletarVenda(req, res) {
-    const id = req.body.id; // Obtem o ID da venda a partir do corpo da requisição
+    const { id } = req.body; // Obtenha o ID da venda a ser deletada do corpo da requisição
 
     try {
-        const db = await openDb();
+        const db = await openDb(); // Abra a conexão com o banco de dados
 
-        // Inicia uma transação
+        // Inicie uma transação para garantir consistência
         await db.exec('BEGIN TRANSACTION');
 
-        // Primeiro, obtemos a placa do veículo relacionado à venda
+        // Consulte a venda pelo ID
         const venda = await db.get('SELECT veiculo_placa FROM Venda WHERE id = ?', [id]);
 
+        // Se não encontrar a venda, retorne um erro 404
         if (!venda) {
-            await db.exec('ROLLBACK'); // Reverte a transação em caso de erro
-            return res.status(404).json({
-                statusCode: 404,
-                message: "Venda não encontrada."
-            });
+            await db.exec('ROLLBACK'); // Reverta a transação em caso de erro
+            return res.status(404).json({ message: 'Venda não encontrada.' });
         }
 
-        // Deletar a venda da tabela Venda
+        // Delete a venda da tabela Venda
         const result = await db.run('DELETE FROM Venda WHERE id = ?', [id]);
 
+        // Se nenhuma linha foi alterada, a venda não foi encontrada
         if (result.changes === 0) {
-            await db.exec('ROLLBACK'); // Reverte a transação em caso de erro
-            return res.status(404).json({
-                statusCode: 404,
-                message: "Venda não encontrada ou já foi deletada."
-            });
+            await db.exec('ROLLBACK'); // Reverta a transação em caso de erro
+            return res.status(404).json({ message: 'Venda não encontrada ou já foi deletada.' });
         }
 
-        // Atualizar o status do veículo para "disponível"
+        // Atualize o status do veículo para "disponível"
         await db.run('UPDATE Veiculo SET status = "disponível" WHERE placa = ?', [venda.veiculo_placa]);
 
-        // Confirma a transação
+        // Confirme a transação
         await db.exec('COMMIT');
 
-        res.status(200).json({
-            statusCode: 200,
-            message: "Venda excluída com sucesso e status do veículo atualizado para disponível."
-        });
+        // Se tudo ocorreu bem, retorne um status 200 e uma mensagem de sucesso
+        res.status(200).json({ message: 'Venda excluída com sucesso e status do veículo atualizado para disponível.' });
     } catch (error) {
-        await db.exec('ROLLBACK'); // Reverte a transação em caso de erro
-        console.error("Erro ao deletar venda:", error);
-        res.status(500).json({
-            statusCode: 500,
-            message: "Erro ao deletar venda."
-        });
+        // Em caso de erro, reverta a transação e retorne um status 500
+        console.error('Erro ao deletar venda:', error);
+        await db.exec('ROLLBACK');
+        res.status(500).json({ message: 'Erro ao deletar venda.' });
     }
 }

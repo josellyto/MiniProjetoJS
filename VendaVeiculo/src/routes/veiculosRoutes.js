@@ -7,7 +7,7 @@ const routerVeiculo = Router();
 routerVeiculo.get('/vehicle', (req, res) => {
     res.json({
         statusCode: 200,
-        message: "API Veículos funcionando!"
+        message: "API Veículos funcionando bem!"
     });
 });
 

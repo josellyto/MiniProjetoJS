@@ -6,7 +6,7 @@ const routerVenda = Router();
 routerVenda.get('/shell', (req, res) => {
     res.json({
         statusCode: 200,
-        message: "API Vendas funcionando!"
+        message: "API Vendas funcionando bem!"
     })
 });
 

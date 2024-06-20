@@ -8,7 +8,7 @@ const routercliente = Router();
 routercliente.get('/client', (req, res) => {
     res.json({
         statusCode: 200,
-        message: "API Cliente funcionando!"
+        message: "API Cliente funcionando bem!"
     });
 });
 

@@ -4,7 +4,8 @@
   "description": "Venda de veiculos, cadastro de veiculos e cadastro de cliente",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +14,16 @@
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
-    "nodeman": "^1.1.2",
     "nodemon": "^3.1.3",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
 }
